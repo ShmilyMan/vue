@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <div id="app">
+    <div :class="classs">
+      {{message}}
+    </div>
+    <div :class="getClasss()">
+      {{message}}
+    </div>
+  </div>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const vue = new Vue({
+      el:'#app',
+      data:{
+        message:'你好呀',
+        classs:['red','green']  // 同时绑定两个class属性
+      },
+      methods:{
+        // 将要绑定的class属性封装成对象
+        getClasss:function () {
+          return this.classs;
+        }
+      }
+    })
+  </script>
+</body>
+</html>

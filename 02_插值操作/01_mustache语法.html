@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <div id="app">
+    <h1>{{message}}</h1>
+    <!--
+        mustache语法不仅可以写变量，还可以写表达式
+        只是向页面中插值，不能插入到页面元素的属性中
+    -->
+    <h1>{{firstName + ' ' + lastName}}</h1>
+    <h1>{{firstName + '&nbsp;' + lastName}}</h1>
+  </div>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const vue = new Vue({
+      el:'#app',
+      data:{
+        message:'你好呀',
+        firstName:'Demo',
+        lastName:'Text'
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <div id="app">
+    <my-cpn :cmessage="message" :cmovies="movies"></my-cpn>
+  </div>
+
+  <template id="cpn">
+    <div>
+      <h2>{{cmessage}}</h2>
+      <ul>
+        <li v-for="item in cmovies">{{item}}</li>
+      </ul>
+    </div>
+  </template>
+
+  <!--app对象也可以看成是一个组件，父组件向子组件传递消息通过属性进行传递-->
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el:'#app',
+      data:{
+        message:'你好呀',
+        movies:['海王','海贼王','叶问','唐人街探案']
+      },
+      components:{
+        'my-cpn':{
+          template:'#cpn',
+          /*第一种方式，使用数组*/
+          /*props:['cmessage','cmovies']*/
+          /*
+            第二种方式,使用对象
+              使用对象时可以指定属性必须采取的类型，必须填写的属性以及默认值等
+              注意：对象和数组的默认值必须是一个函数
+          */
+          props:{
+            cmessage:{
+              type:String,
+              default:'啦啦啦',
+              required:true
+            },
+            cmovies:{
+              type:Array,
+              default() {
+                return [];
+              }
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

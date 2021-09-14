@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <!--父组件模板-->
+  <div id="app">
+    <cpn @itemclick="mainClick"></cpn>
+  </div>
+
+  <!--子组件模板-->
+  <template id="cpn">
+    <div>
+      <button v-for="item in category" @click="temClick(item)">{{item.name}}</button>
+    </div>
+  </template>
+
+  <!--子组件向父组件中传递数据是通过发送监听事件来实现的-->
+  <script src="../js/vue.js"></script>
+  <script>
+    /*子组件*/
+    const cpn = {
+      template:'#cpn',
+      data() {
+        return {
+          category:[
+            {id:'aaa',name:'体育用品'},
+            {id:'bbb',name:'生活用品'},
+            {id:'ccc',name:'家居用品'},
+            {id:'ddd',name:'日常用品'}
+          ]
+        }
+      },
+      methods:{
+        temClick(item){
+          /*向父组件发送事件*/
+          this.$emit('itemclick',item);
+        }
+      }
+    };
+
+    /*父组件*/
+    const app = new Vue({
+      el:'#app',
+      components:{
+        cpn
+      },
+      methods: {
+        mainClick(item) {
+          /*父组件接收*/
+          console.log(item);
+        }
+      }
+    });
+  </script>
+</body>
+</html>

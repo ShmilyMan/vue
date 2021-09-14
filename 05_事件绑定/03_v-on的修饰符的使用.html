@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <!--
+      1.stop：阻止事件的冒泡联动（点击子标签也会触发父标签的事件）
+      2.prevent：阻止按钮的默认事件的触发
+      3.{keyCode | keyAlias}：当键盘按下特定的按键时触发函数
+      4.native：自定义组件要触发事件时要加上该修饰符
+      5.once：只触发一次回调
+  -->
+  <div id="app">
+    <div @click="divClick">
+      啊啊啊啊啊啊啊啊啊啊
+      <button @click.stop="btnClick">哒哒哒</button>
+    </div>
+    <form action="baidu">
+      <input type="submit" value="提交" @click.prevent="submit" />
+    </form>
+    <input type="text" @keyup.enter="inputClick"/>
+  </div>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el:'#app',
+      data:{
+        message:'你好呀'
+      },
+      methods:{
+        divClick() {
+          console.log('divClick');
+        },
+        btnClick() {
+          console.log('btnClick');
+        },
+        submit() {
+          console.log('submit');
+        },
+        inputClick () {
+          console.log('inputClick');
+        }
+      }
+    });
+  </script>
+</body>
+</html>

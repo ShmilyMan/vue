@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .red {
+      color: red;
+    }
+    .green {
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div :class="getColorClass()">
+      {{message}}
+    </div>
+    <button v-on:click="changeColor">切换颜色</button>
+  </div>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const vue = new Vue({
+      el:'#app',
+      data:{
+        message:'你好呀',
+        isRed:true,
+        isGreen:false
+      },
+      methods:{
+        changeColor:function () {
+          this.isRed = !this.isRed;
+          this.isGreen = !this.isGreen;
+        },
+        /*
+        *   通过函数返回class属性来控制div的样式
+        */
+        getColorClass:function () {
+          return {red:this.isRed,green:this.isGreen};
+        }
+      }
+    });
+  </script>
+</body>
+</html>

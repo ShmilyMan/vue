@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <!--
+      v-model可以在表单，文本框中实现双向绑定：
+        1、当data中的信息改变时，表单的值（value）发生改变。
+        2、当表单的值value发生改变时，data中的信息也会发生改变。
+  -->
+  <div id="app">
+    <input type="text" v-model="message" />
+    {{message}}
+  </div>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el:'#app',
+      data:{
+        message:'你好呀'
+      }
+    });
+  </script>
+</body>
+</html>

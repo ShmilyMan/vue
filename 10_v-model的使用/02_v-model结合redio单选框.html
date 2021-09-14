@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <div id="app">
+    <!--当没有实现v-model时如果想让单选框只选一个，则必须设置相同的name属性，如果设置了v-model则有没有name属性都无所谓-->
+    <label for="male">
+      <input type="radio" id="male" value="male" v-model="sex" />男
+    </label>
+    <label for="female">
+      <input type="radio" id="female" value="female" v-model="sex" />女
+    </label>
+    <h2>您选择的性别是：{{sex}}</h2>
+  </div>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el:'#app',
+      data:{
+        message:'你好呀',
+        sex:'male'
+      }
+    })
+  </script>
+</body>
+</html>

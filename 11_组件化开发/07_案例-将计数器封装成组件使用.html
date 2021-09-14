@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <div id="app">
+    <my-counter></my-counter>
+  </div>
+
+  <template id="myCounter">
+    <div>
+      <h3>当前数字：{{count}}</h3>
+      <button @click="decrement">-</button>
+      <button @click="increment">+</button>
+    </div>
+  </template>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el:'#app',
+      components:{
+        'my-counter':{
+          template:'#myCounter',
+          data() {
+            return {
+              count:0
+            };
+          },
+          methods:{
+            increment() {
+              this.count++;
+            },
+            decrement() {
+              this.count--;
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

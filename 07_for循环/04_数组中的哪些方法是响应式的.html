@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <div id="app">
+    <ul>
+      <li v-for="item in names">{{item}}</li>
+    </ul>
+    <button @click="btnClick()">按钮</button>
+  </div>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el:'#app',
+      data:{
+        names:['张三','李四','王五','赵六']
+      },
+      methods:{
+        btnClick() {
+          //响应式的方法
+          //1.push()：向数组末尾添加元素
+          // this.names.push('aaa','bbb');
+
+          //2.pop()：从数组的末尾删除一个元素
+          // this.names.pop();
+
+          //3.shift()：删除数组中第一个元素
+          // this.names.shift();
+
+          //4.unshift()：在数组的第一个元素之前插入元素
+          // this.names.unshift('aaa','bbb');
+
+          //5.splice作用：删除元素/插入元素/替换元素   -- 第一个参数为从第几个元素删除元素，第二个参数为从删除几个元素
+          // 第三个参数为要插入的元素的个数
+          // 删除元素
+          // this.names.splice(1,1);
+          // 插入元素
+          // this.names.splice(1, 0, 'aaaaaaa');
+          // 替换元素
+          // this.names.splice(1, 2, 'aaa', 'bbb');
+
+          //6.sort()：对元素进行排序
+          //7.reverse()：反置
+          // this.names.reverse();
+
+          // 不会产生响应式的情况
+          // this.names[0] = 'aaa';
+          // 改变他的值的方法
+          // this.names.splice(1, 1, 'aaa');
+          Vue.set(this.names, 0, 'aaa');
+        }
+      }
+    });
+  </script>
+</body>
+</html>

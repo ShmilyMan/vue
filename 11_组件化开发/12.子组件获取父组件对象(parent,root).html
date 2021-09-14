@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <div id="app">
+    <cpn></cpn>
+  </div>
+
+  <!--
+      一般不用,会降低父子组件的独立性，增加组件之间的耦合性
+        1.parent:获取一个组件的父组件;
+        2.root:获取一个子组件的根组件;
+  -->
+  <!--子组件-->
+  <template id="cpn">
+    <ccpn></ccpn>
+  </template>
+
+  <!--子组件的子组件-->
+  <template id="ccpn">
+    <div>
+      <h2>啦啦啦啦啦啦</h2>
+      <button @click="btnClick">按钮</button>
+    </div>
+  </template>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el:'#app',
+      data:{
+        message:'你好呀'
+      },
+      components:{
+        cpn:{
+          template:'#cpn',
+          data() {
+            return {
+              info:'啦啦啦啦啦'
+            };
+          },
+          components: {
+            ccpn:{
+              template: '#ccpn',
+              methods:{
+                btnClick() {
+                  console.log(this.$parent.info);
+                  console.log(this.$root.message);
+                }
+              }
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <div id="app">
+    <!--调用计算属性-->
+    {{fullName}}
+  </div>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el:'#app',
+      data:{
+        firstName: 'Aobodadada',
+        lastName: 'Corel'
+      },
+      //computed计算属性，看似是一个函数，它其实是一个属性，所以命名的时候一般不加get,set前缀
+      computed:{
+        fullName:function () {
+          return this.firstName + ' ' + this.lastName;
+        }
+      }
+    })
+  </script>
+</body>
+</html>

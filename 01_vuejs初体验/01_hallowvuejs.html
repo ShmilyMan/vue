@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">{{name}}</div>
+    <script src="../js/vue.js"></script>
+    <script>
+        // vuejs的编程方式为声明式的编程，用于管理HTML标签的元素
+        // vue为响应式的编程，当data的值变了时，网页中显示出的data值也会随之变化
+        const app = new Vue({
+            el:'#app',// 用于定义要管理的元素
+            data:{ // 用于存放数据，可以定义多个数据
+                message:'你好呀，Vue！',
+                name:'张三'
+            }
+        });
+    </script>
+</body>
+</html>

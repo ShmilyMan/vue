@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+  // 当一个需求需要同时发送多个请求的时候可以使用
+  // all的参数是一个数组
+  Promise.all([
+      new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve('11111111111')
+        },1000)
+      }),
+    new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve('222222222222')
+      },1000)
+    })
+  ]).then(results => {
+    // 返回的值是一个数组
+    console.log(results);
+  })
+</script>
+</body>
+</html>

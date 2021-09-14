@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <div id="app">
+    <!--1.lazy:当用户回车或文本输入框失去焦点时，才进行双向绑定-->
+    <!--<input type="text" v-model.lazy="message" />
+    <h2>{{message}}</h2>-->
+
+    <!--2.number:v-model默认返回的参数是string类型，number修饰符可以把它转化成Number类型-->
+    <!--<input type="number" v-model.number="message" />
+    <h2>{{typeof message}}</h2>-->
+
+    <!--3.trim:去掉字符串左右两边的空格-->
+    <input type="text" v-model.trim="message" />
+    <h2>{{message}}</h2>
+  </div>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el:'#app',
+      data:{
+        message:'你好呀'
+      }
+    })
+  </script>
+</body>
+</html>

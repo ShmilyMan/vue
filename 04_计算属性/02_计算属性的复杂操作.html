@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <div id="app">
+    <h2>{{totalScore}}</h2>
+  </div>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el:'#app',
+      data:{
+        student: [
+          {id:100,name:'小明',score:89},
+          {id:100,name:'张三',score:78},
+          {id:100,name:'李四',score:65},
+          {id:100,name:'王五',score:97},
+          {id:100,name:'赵六',score:79}
+        ]
+      },
+      computed:{
+        // 求总分数
+        totalScore:function () {
+          let total = 0;
+          for (let i = 0; i < this.student.length; i++) {
+            total += this.student[i].score;
+          }
+          return total;
+        }
+      }
+    })
+  </script>
+</body>
+</html>

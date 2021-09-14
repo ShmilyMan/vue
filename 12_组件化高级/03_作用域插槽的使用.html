@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <!--
+      作用域插槽：父组件替换插槽的标签，但是内容由子组件来提供(当父组件对子组件的效果不满意时)
+  -->
+  <div id="app">
+    <cpn>
+      <template slot-scope="slot">
+        <span>{{slot.data.join('*')}}</span>
+      </template>
+    </cpn>
+  </div>
+
+  <template id="cpn">
+    <div>
+      <slot :data="movies">
+        <ul>
+          <li v-for="item in movies">{{item}}</li>
+        </ul>
+      </slot>
+    </div>
+  </template>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const vue = new Vue({
+      el:'#app',
+      components:{
+        cpn:{
+          template:'#cpn',
+          data() {
+            return {
+              movies:['海王','海贼王','士兵突击']
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <!--
+      官方推荐我们在使用v-for时尽量对标签绑定一个key属性：
+      往所有元素中间插入一个新的元素：
+          如果不绑定key则会指针一个一个指向下一个，最后再在最后添加一个元素
+          如果绑定了key属性，则先找到对应的匹配的元素最后再在中间插入一个元素，性能比较高
+  -->
+  <div id="app">
+    <ul>
+      <li v-for="item in names" :key="item">{{item}}</li>
+    </ul>
+  </div>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el:'#app',
+      data:{
+        message:'你好呀',
+        names:['张三','李四','王五','赵六']
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <div id="app">
+    <!--1.当点击事件的函数参数传递不需要参数时，这时写不写括号都可以，效果是一样的-->
+    <button @click="btnClick1">按钮1</button>
+    <button @click="btnClick1()">按钮1</button>
+
+    <!--
+        2.当点击事件的函数参数传递需要参数时，如果写括号不给定参数，undefined
+          如果括号也不给，则传给参数的是网页的点击等事件。
+    -->
+    <button @click="btnClick2()">按钮2</button>
+    <button @click="btnClick2">按钮2</button>
+
+    <!--
+        3.当即需要传入函数参数有需要网页中的事件时：
+          -- 如果不给定参数(有括号)：所有的参数都是undefined
+          -- 如果不给定参数(没有括号)：vue默认把网页中产生的事件赋值给第一个变量，则第二个变量为undefined
+          -- 如果给定一个参数：第一个变量为给定的值，第二个变量为undefined
+          -- 如果即需要传入参数又需要传入网页中产生的事件：在要获取的事件的参数前面加一个$符号
+    -->
+    <button @click="btnClick3()">按钮3</button>
+    <button @click="btnClick3">按钮3</button>
+    <button @click="btnClick3(111)">按钮3</button>
+    <button @click="btnClick3(111,$event)">按钮3</button>
+  </div>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const vue = new Vue({
+      el:'#app',
+      data:{
+        message:'你好呀'
+      },
+      methods:{
+        btnClick1() {
+          console.log('------------ 按钮1');
+        },
+        btnClick2(event) {
+          console.log('+++++++++++++' + event);
+        },
+        btnClick3(abc,event) {
+          console.log(abc, event);
+        }
+      }
+    });
+  </script>
+</body>
+</html>

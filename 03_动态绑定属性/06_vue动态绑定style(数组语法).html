@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <!--一般用的比较少-->
+  <div id="app">
+    <h1 :style="[style1]">{{message}}</h1>
+  </div>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const vue = new Vue({
+      el:'#app',
+      data:{
+        message:'你好呀',
+        style1:{color:'red',fontSize:'100px'} //属性必须写成字符串的形式，否则vue将会认为这个值是一个对象，报错
+      }
+    })
+  </script>
+</body>
+</html>

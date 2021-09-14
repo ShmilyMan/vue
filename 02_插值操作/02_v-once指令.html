@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <div id="app" v-once>
+    <!--
+        如果希望一个变量不具有响应式的效果，即当变量的值改变时，
+        页面中展示的数据并不改变，这时就可以使用v-once指令。
+    -->
+    {{message}}
+  </div>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el:'#app',
+      data:{
+        message:'你好呀'
+      }
+    })
+  </script>
+</body>
+</html>

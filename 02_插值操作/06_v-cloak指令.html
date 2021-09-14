@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    [v-cloak] {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <!--
+      v-cloak指令：
+        1.当页面一开始时页面中HTML标签元素含有v-cloak指令;
+        2.当vue解析完成之后该指令就消失了;
+      作用：避免vue还没有解析完，页面出现{{message}}的效果。
+  -->
+  <div id="app" v-cloak>
+    {{message}}
+  </div>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    setTimeout(function (){
+      const app = new Vue({
+        el:'#app',
+        data:{
+          message:'你好呀'
+        }
+      });
+    },1000);
+  </script>
+</body>
+</html>

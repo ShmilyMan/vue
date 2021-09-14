@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <!--type的类型是模块的类型-->
+  <script src="aaa.js" type="module"></script>
+  <script src="bbb.js" type="module"></script>
+  <script src="ccc.js" type="module"></script>
+  <script type="module">
+    import {student} from "./ccc.js";
+    console.log(student)
+  </script>
+</body>
+</html>

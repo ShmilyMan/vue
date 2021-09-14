@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    const data = [10,20,30,40,80,50,111,222,555];
+    /*
+      1.filter(过滤)函数的使用
+        该函数会自动遍历一个数组，而且该函数参数传入一个回调函数，回调函数的参数是正在遍历的数组的元素
+        规定该函数必须有一个返回值：
+          如果返回值为true则将该元素插入到一个数组中
+          如果返回值为false则不将该元素插入到数组中
+        我们要做的只是设置一个数组接收该数组就行
+    */
+    data2 = data.filter(function (n) {
+      //找出data数组中小于100的元素
+      return n < 100;
+    });
+
+    /**
+     *  2.map(映射)函数的使用
+     */
+    data3 = data.map(function (n) {
+      return n * 2;
+    });
+
+    /**
+     *  3.reduce(汇总)函数的使用
+     *  preValue:计算出的前一个值
+     *  第二个参数为preValue的一开始时的默认值
+     */
+    data4 = data.reduce(function (preValue,n) {
+      return preValue + n;
+    },0);
+    alert(data4);
+  </script>
+</body>
+</html>

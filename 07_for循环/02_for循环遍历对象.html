@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <div id="app">
+    <!--遍历值-->
+    <ul>
+      <li v-for="item in student">{{item}}</li>
+    </ul>
+    <!--遍历key和value-->
+    <ul>
+      <li v-for="(item,key) in student">{{key}}:{{item}}</li>
+    </ul>
+    <!--遍历key和value和index-->
+    <ul>
+      <li v-for="(value,key,index) in student">{{key}}:{{item}} -- {{index}}</li>
+    </ul>
+  </div>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el:'#app',
+      data:{
+        message:'你好呀',
+        student: {
+          name:'张三',
+          age:18,
+          height:40
+        }
+      }
+    })
+  </script>
+</body>
+</html>

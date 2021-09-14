@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="item in love">
+                {{item}}
+            </li>
+        </ul>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                love:['打篮球','玩儿游戏','羽毛球']
+            }
+        });
+    </script>
+</body>
+</html>

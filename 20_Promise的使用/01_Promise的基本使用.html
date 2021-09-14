@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  // 使用Promise对浏览器的异步请求进行封装
+  // resolve:请求成功时调用
+  // reject请求失败时调用
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      // 两个函数只能执行一个,链式编程
+      reject('error img')
+      resolve('hallow world')
+    },1000)
+  }).then((data) => {
+    console.log(data);
+    console.log(data);
+    console.log(data);
+    console.log(data);
+    console.log(data);
+  }).catch((data) => {
+    console.log(data);
+    console.log(data);
+    console.log(data);
+    console.log(data);
+    console.log(data);
+  })
+</script>
+</body>
+</html>

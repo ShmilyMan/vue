@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <!--
+      显示文本，也会将原来HTML标签中的内容覆盖
+      注意：因为不够灵活所以一般不用
+  -->
+  <div id="app" v-text="message">
+    {{message}}
+  </div>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const vue = new Vue({
+      el:'#app',
+      data:{
+        message:'你好呀'
+      }
+    })
+  </script>
+</body>
+</html>

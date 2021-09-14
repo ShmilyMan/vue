@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <!--
+      v-if和v-show都可以控制网页元素的显示和消失，但他们发挥作用的方法有显著区别:
+      v-if会把原本的标签删掉，等条件满足时再加上之前的标签
+      而v-show只是在原本的标签中加入了style="display: none;"并没有将原本的标签删掉
+      何时用？
+      当需要频繁的切换状态时使用v-show否则使用v-if就行
+  -->
+  <div id="app">
+    <h2 v-if="isShow">{{message}}</h2>
+    <h2 v-show="isShow">{{message}}</h2>
+  </div>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el:'#app',
+      data:{
+        message:'你好呀',
+        isShow:true
+      }
+    })
+  </script>
+</body>
+</html>

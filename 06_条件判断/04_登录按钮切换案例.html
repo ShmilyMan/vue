@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <!--
+      问题：当点击切换按钮时，用户输入的东西并没有改变
+      原因：vue会在对dom中的元素渲染到页面上时,会生成一个虚拟的dom，这时vue会复用之前的标签，并将之前标签中
+      input的内容进行保存。
+      解决：加一个key属性，当这个属性相同时vue虚拟机就会复用标签，不同时就不会对其进行复用。
+  -->
+  <div id="app">
+    <span v-if="isUser">
+      <label for="username">用户名</label>
+      <input type="text" placeholder="用户名" id="username" key="abc" />
+    </span>
+    <span v-else>
+      <label for="email">用户邮箱</label>
+      <input type="text" placeholder="用户邮箱" id="email" key="sdds" />
+    </span>
+    <button @click="isUser = !isUser">登录方式切换</button>
+  </div>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el:'#app',
+      data:{
+        message:'你好呀',
+        isUser:true
+      }
+    });
+  </script>
+</body>
+</html>

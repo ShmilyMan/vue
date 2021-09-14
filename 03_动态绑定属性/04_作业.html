@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .red {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <!-- 点击列表中的某一项，那一项变成红色 -->
+  <div id="app">
+    <ul>
+      <li v-for="(item,index) in loves" :class="{red:index == mark}" @click="changeColor(index)">{{item}}</li>
+    </ul>
+  </div>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el:'#app',
+      data:{
+        mark:-1,
+        loves:['篮球','打游戏','看电视','羽毛球']
+      },
+      methods:{
+        changeColor:function (index) {
+          if (this.mark != index){//当第一次点击时变成红色
+            this.mark = index;
+          }else{//第二次点击时红色消失
+            this.mark = -1;
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

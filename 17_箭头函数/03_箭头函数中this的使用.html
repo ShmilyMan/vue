@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  // 箭头函数中的this是一层一层的向上找对象
+  // 而function中是通过回调函数返回一个window对象，不管嵌套多少层都会返回window对象
+  const obj = {
+    // 对象里的方法一般都用es6中的函数的简便写法，不使用箭头函数
+   aaa() {
+     setTimeout(function () {
+       console.log(this);
+     },1000)
+   }
+  }
+
+  const obj2 = {
+    // 对象里的方法一般都用es6中的函数的简便写法，不使用箭头函数
+    aaa() {
+      setTimeout(() => {
+        console.log(this);
+      },1000)
+    }
+  }
+
+  obj.aaa();
+  obj2.aaa();
+</script>
+</body>
+</html>

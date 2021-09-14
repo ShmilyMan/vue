@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <!--使用了具名插槽后，如果在使用时没有给出要具体替换的插槽，则会替换掉没有名字的插槽-->
+  <div id="app">
+    <cpn>
+      <button slot="left">按钮</button>
+    </cpn>
+  </div>
+
+  <template id="cpn">
+    <div>
+      <slot name="left"><span>左边</span></slot>
+      <slot name="center"><span>中间</span></slot>
+      <slot name="right"><span>右边</span></slot>
+    </div>
+  </template>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el:'#app',
+      components:{
+        cpn:{
+          template:'#cpn'
+        }
+      }
+    });
+  </script>
+</body>
+</html>

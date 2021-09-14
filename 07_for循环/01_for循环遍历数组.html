@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <div id="app">
+    <!--没有下标-->
+    <ul>
+      <li v-for="item in names">{{item}}</li>
+    </ul>
+    <!--有下标,一般数据比较重要则下标在下边儿-->
+    <ul>
+      <li v-for="(item,index) in names">{{index}}.{{item}}</li>
+    </ul>
+  </div>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const vue = new Vue({
+      el:'#app',
+      data:{
+        message:'你好呀',
+        names:['张三','李四','王五','赵六']
+      }
+    })
+  </script>
+</body>
+</html>

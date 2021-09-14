@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <!--
+      如果希望可以让HTML元素的字符串在网页中按HTML解析，可以使用v-html指令
+      注意：会把原来HTML标签中的内容覆盖
+  -->
+  <div id="app" v-html="url">
+    {{message}}
+  </div>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el:'#app',
+      data:{
+        message:'你好呀',
+        url:'<a href="http://www.baidu.com">百度一下</a>'
+      }
+    })
+  </script>
+</body>
+</html>

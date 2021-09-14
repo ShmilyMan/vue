@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <!--
+      父组件访问子组件的两种方式：
+        1.$children:只能通过数组的下标编号获取子组件（一般不用）,返回的是一个数组;
+        2.$refs:可以通过ref属性获取子组件，一般用的比较多，必须设置ref属性;
+  -->
+  <div id="app">
+    <cpn ref="aaa"></cpn>
+    <button @click="btnClick">按钮</button>
+  </div>
+
+  <template id="cpn">
+    <div>
+      <h2>我是子组件</h2>
+    </div>
+  </template>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el:'#app',
+      methods: {
+        btnClick() {
+          //1.$children
+          // this.$children[0].showMessage();
+          // console.log(this.$children[0].name);
+
+          //2.$refs
+          console.log(this.$refs.aaa.name);
+        }
+      },
+      components:{
+        cpn:{
+          template:'#cpn',
+          data() {
+            return {
+              name:'我是子组件的name'
+            }
+          },
+          methods:{
+            showMessage() {
+              console.log('啦啦啦啦啦啦啦啦');
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    button {
+      width: 80px;
+      height: 50px;
+      text-align: center;
+      line-height: 50px;
+      font-size: 10px;
+    }
+  </style>
+</head>
+<body>
+    <div id="app">
+      <h2>计数：{{counter}}</h2>
+      <!--绑定事件的第一种方法-->
+      <!--<button v-on:click="counter++;"> + </button>
+      <button v-on:click="counter--;"> - </button>-->
+
+      <!--绑定事件的第二种写法：函数-->
+     <!-- <button v-on:click="increment"> + </button>
+      <button v-on:click="decrement"> - </button>-->
+
+      <!--绑定事件的第三种写法：语法糖-->
+      <button @click="increment"> + </button>
+      <button @click="decrement"> - </button>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      const app = new Vue({
+        el:'#app',
+        data:{
+          counter:0
+        },
+        methods:{
+          increment(){
+            this.counter++;
+          },
+          decrement(){
+            this.counter--;
+          }
+        }
+      })
+    </script>
+</body>
+</html>
